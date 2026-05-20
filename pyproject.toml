@@ -1,0 +1,13 @@
+[project]
+name = "techdraw-translator"
+version = "0.1.0"
+description = "Local desktop translator for technical drawings and RFQ emails"
+requires-python = ">=3.11"
+
+authors = [{name = "TechDraw Team"}]
+
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
