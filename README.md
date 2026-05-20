@@ -55,3 +55,35 @@ W tej iteracji dostępny jest eksport tabelaryczny (CSV/XLSX), a moduły PDF ove
 
 ## Odpowiedzialność
 Program pomaga analizować dokumentację ofertową, ale **nie zastępuje odpowiedzialności technologa/kalkulatora**. Każde tłumaczenie techniczne należy zweryfikować.
+
+
+## Uruchomienie przez Docker
+
+### 1) Build obrazu
+```bash
+docker build -t techdraw-translator:latest .
+```
+
+### 2) Uruchom testy w kontenerze
+```bash
+docker run --rm -v ${PWD}:/app techdraw-translator:latest pytest -q
+```
+
+### 3) Uruchom aplikację GUI przez Docker (Linux/X11)
+```bash
+xhost +local:docker
+docker compose run --rm techdraw-app
+```
+
+Po zakończeniu możesz cofnąć dostęp:
+```bash
+xhost -local:docker
+```
+
+### 4) Skróty docker compose
+```bash
+docker compose run --rm techdraw-tests
+docker compose run --rm techdraw-app
+```
+
+> Uwaga (Windows/macOS): natywna aplikacja PySide6 w kontenerze wymaga serwera X (np. XQuartz/VcXsrv). Jeżeli celem jest tylko walidacja pipeline, użyj `techdraw-tests`.
