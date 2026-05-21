@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxext6 \
     libxrender1 \
     libxkbcommon-x11-0 \
+    libxcb-cursor0 \
     libdbus-1-3 \
     libfontconfig1 \
     libegl1 \
